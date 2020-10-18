@@ -15,7 +15,7 @@ class UserRepository implements UserRepositoryInterface
     }
     public function getAllUsers()
     {
-        return $this->entity->with('contacts')->paginate();
+        return $this->entity->with('contacts')->orderBy('id')->paginate();
         //return $this->entity->paginate();
     }
 
