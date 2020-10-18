@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
-    private $repository;
+    protected $repository;
 
     public function __construct(UserRepositoryInterface $repository)
     {
@@ -19,6 +19,11 @@ class UserController extends Controller
     public function getAllUsers()
     {
         return UserResource::collection($this->repository->getAllUsers());
+    }
+
+    public function getUser($id)
+    {
+        return $this->repository->getUser($id);
     }
 
     public function storeUser(Request $request)

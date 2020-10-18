@@ -20,7 +20,13 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 
 Route::get('/users', 'Api\UserController@getAllUsers');
+Route::get('/users/{id}', 'Api\UserController@getUser');
 Route::post('/users', 'Api\UserController@storeUser');
 Route::delete('/users/{id}', 'Api\UserController@DestroyUser');
 Route::put('/users/{id}', 'Api\UserController@UpdateUser');
 
+Route::get('/contacts/{id}', 'Api\ContactController@getContactByUser');
+Route::get('/contact/{id}', 'Api\ContactController@getContact');
+Route::post('/contacts', 'Api\ContactController@storeContactByUser');
+Route::put('/contacts/{id}', 'Api\ContactController@updateContact');
+Route::delete('/contacts/{id}', 'Api\ContactController@destroyContact');

@@ -13,15 +13,16 @@ class CreateContactsTable extends Migration
      */
     public function up()
     {
-  /*       Schema::create('contacts', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->id();
-            $table->string('phone')->nullable();
-            $table->string('email')->nullable();
-            $table->string('whatsapp')->nullable();
+            $table->enum('type', ['wpp', 'phone', 'email']);
+            $table->string('value');
+
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('id')->on('users');
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');;
+
             $table->timestamps();
-        }); */
+        });
     }
 
     /**

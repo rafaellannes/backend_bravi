@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'birth_date', 'city', 'phone', 'whatsapp'
+        'name', 'city', 'phone', 'whatsapp'
     ];
 
 
@@ -39,8 +39,8 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-  /*   public function contacts()
+    public function contacts()
     {
         return $this->hasMany(Contact::class);
-    } */
+    }
 }

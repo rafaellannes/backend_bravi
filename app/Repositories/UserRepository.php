@@ -15,8 +15,13 @@ class UserRepository implements UserRepositoryInterface
     }
     public function getAllUsers()
     {
-        //return $this->entity->with('contacts')->paginate();
-        return $this->entity->paginate();
+        return $this->entity->with('contacts')->paginate();
+        //return $this->entity->paginate();
+    }
+
+    public function getUser($id)
+    {
+        return $this->entity->findOrFail($id);
     }
 
     public function storeUser($data)
@@ -24,7 +29,7 @@ class UserRepository implements UserRepositoryInterface
 
         $user = $this->entity->create($data);
 
-       /*  foreach ($data['contacts'] as $contact) {
+        /*  foreach ($data['contacts'] as $contact) {
             $user->contacts()->save(new Contact($contact));
         } */
 
